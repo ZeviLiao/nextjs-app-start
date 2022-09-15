@@ -1,5 +1,5 @@
 import React from "react";
-import { Modal, Button, Text, Grid, Image } from "@nextui-org/react";
+import { Modal, Button, Text, Grid, Image, Spacer } from "@nextui-org/react";
 
 export default function ModalBookDetail() {
   const [visible, setVisible] = React.useState(false);
@@ -42,11 +42,17 @@ export default function ModalBookDetail() {
                   height={300}
                 />
               </Grid>
-              <Grid>
-                <Text>abc</Text>
-                <Button auto onClick={closeHandler}>
-                  開始閱讀
-                </Button>
+              <Grid className="w-[200px]">
+                <div className="w-[120px] mx-auto">
+                  <Text h5>我是書籍名稱</Text>
+                  <Text>作者 abc</Text>
+                  <Text>作者 abc</Text>
+                  <Text>作者 abc</Text>
+                  <Spacer/>
+                  <Button auto onClick={closeHandler} className="mx-auto">
+                    開始閱讀
+                  </Button>
+                </div>
               </Grid>
             </Grid.Container>
           </Modal.Body>
