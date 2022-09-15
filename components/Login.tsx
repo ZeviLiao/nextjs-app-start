@@ -1,52 +1,54 @@
-import React from 'react';
-import {
-  Card,
-  Spacer,
-  Button,
-  Text,
-  Input,
-  Row,
-  Checkbox,
-  Container,
-} from '@nextui-org/react';
+import React from "react";
+import { Modal, Button, Text, Input, Row, Checkbox } from "@nextui-org/react";
+import { Mail } from "./Mail";
+import { Password } from "./Password";
 
-export default function Login() {
+export default function App() {
+  const [visible, setVisible] = React.useState(false);
+  const handler = () => setVisible(true);
+
+  const closeHandler = () => {
+    setVisible(false);
+    console.log("closed");
+  };
+
   return (
     <div>
-      <Container
-        display="flex"
-        alignItems="center"
-        justify="center"
-        css={{ minHeight: '100vh' }}
+      <Button auto shadow onClick={handler}>
+        Open modal
+      </Button>
+      <Modal
+        closeButton
+        aria-labelledby="modal-title"
+        open={visible}
+        onClose={closeHandler}
       >
-        <Card css={{ mw: '420px', p: '20px' }} variant="bordered">
-          <Text
-            size={24}
-            weight="bold"
-            css={{
-              as: 'center',
-              mb: '20px',
-            }}
-          >
-            NextUI Login
+        <Modal.Header>
+          <Text id="modal-title" size={18}>
+            Welcome to
+            <Text b size={18}>
+              NextUI
+            </Text>
           </Text>
+        </Modal.Header>
+        <Modal.Body>
           <Input
             clearable
-            underlined
+            bordered
             fullWidth
             color="primary"
             size="lg"
             placeholder="Email"
+            contentLeft={<Mail fill="currentColor" />}
           />
-          <Spacer y={1} />
           <Input
             clearable
-            underlined
+            bordered
             fullWidth
             color="primary"
             size="lg"
             placeholder="Password"
-            css={{ mb: '6px' }}
+            contentLeft={<Password fill="currentColor" />}
           />
           <Row justify="space-between">
             <Checkbox>
@@ -54,10 +56,16 @@ export default function Login() {
             </Checkbox>
             <Text size={14}>Forgot password?</Text>
           </Row>
-          <Spacer y={1} />
-          <Button>Sign in</Button>
-        </Card>
-      </Container>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button auto flat color="error" onClick={closeHandler}>
+            Close
+          </Button>
+          <Button auto onClick={closeHandler}>
+            Sign in
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 }
