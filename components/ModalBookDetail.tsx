@@ -21,6 +21,9 @@ export default function ModalBookDetail() {
         open={visible}
         onClose={closeHandler}
         width="600px"
+        css={{
+          borderRadius: 7,
+        }}
       >
         <div className="mx-auto">
           <Modal.Header>
@@ -48,8 +51,15 @@ export default function ModalBookDetail() {
                   <Text>作者 abc</Text>
                   <Text>作者 abc</Text>
                   <Text>作者 abc</Text>
-                  <Spacer/>
-                  <Button auto onClick={closeHandler} className="mx-auto">
+                  <Spacer />
+                  <Button
+                    auto
+                    onClick={closeHandler}
+                    className="mx-auto"
+                    css={{
+                      borderRadius: 3,
+                    }}
+                  >
                     開始閱讀
                   </Button>
                 </div>
