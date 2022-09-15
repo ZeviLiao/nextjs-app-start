@@ -1,8 +1,10 @@
-import Login from '../components/Login'
+// import Login from '../components/Login'
+import ModalBookDetail from '../components/ModalBookDetail'
 
 const LoginPage = () => {
   return (
-    <Login/>
+    // <Login/>
+    <ModalBookDetail/>
   )
 }
 
