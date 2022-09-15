@@ -22,7 +22,9 @@ export default function App() {
         aria-labelledby="modal-title"
         open={visible}
         onClose={closeHandler}
+        width="600px"
       >
+        <div className="p-[50px] m-[30px]">
         <Modal.Header>
           <Text id="modal-title" size={18}>
             Welcome to
@@ -32,6 +34,7 @@ export default function App() {
           </Text>
         </Modal.Header>
         <Modal.Body>
+          
           <Input
             clearable
             bordered
@@ -56,6 +59,7 @@ export default function App() {
             </Checkbox>
             <Text size={14}>Forgot password?</Text>
           </Row>
+          
         </Modal.Body>
         <Modal.Footer>
           <Button auto flat color="error" onClick={closeHandler}>
@@ -65,6 +69,7 @@ export default function App() {
             Sign in
           </Button>
         </Modal.Footer>
+          </div>
       </Modal>
     </div>
   );
